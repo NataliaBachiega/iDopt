@@ -49,7 +49,7 @@ jobs:
     - name: Run Tests
       env:
         DB: ${{ matrix.db }}
-        DATABASE_HOST: postgres
+        DATABASE_HOST: localhost
 
       run: |
         python src/manage.py test src
