@@ -17,6 +17,7 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 # Instala as dependências.
 RUN pip install --upgrade pip
 RUN pip install pip-tools
+RUN pip install -r dev-requirements.txt
 # RUN pip install -r requirements.txt
 
 # Adiciona um usuário não root.
