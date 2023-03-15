@@ -21,7 +21,9 @@
 		"vscode": {
 			"extensions": [
 				"ms-python.python",
-				"oderwat.indent-rainbow"
+				"oderwat.indent-rainbow",
+				"GitHub.copilot",
+				"GitHub.copilot-labs"
 			]
 		}
 	}
