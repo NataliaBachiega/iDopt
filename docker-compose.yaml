@@ -1,0 +1,28 @@
+version: "3.3"
+
+services:
+  server:
+    env_file:
+      - ./.env
+    build: .  
+    command: tail -f /dev/null
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/usr/src/idopt/
+      - vscode:/home/idoptusr/.vscode/
+    depends_on:
+      - database
+
+  
+  database:
+    image: postgres:13.5
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=TEMPPASSWORD
+      - POSTGRES_DB=idopt
+      - sslmode=verify-full
+volumes:
+  dbdata:
+  vscode:

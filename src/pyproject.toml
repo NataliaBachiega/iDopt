@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "iDopt"
+classifiers = ["Private :: Do not upload"]
+version = "0.0.1"
+dependencies = [
+    "django",
+    "djangorestframework",
+    "django-rest-knox",
+    "psycopg2-binary",
+    "Pillow"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pip-tools",
+    "Faker",
+    "autopep8"
+]
