@@ -6,6 +6,7 @@ services:
       - ./.env
     build: .  
     command: tail -f /dev/null
+    tty: true
     ports:
       - "8000:8000"
     volumes:
