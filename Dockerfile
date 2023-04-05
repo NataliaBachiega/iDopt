@@ -23,7 +23,6 @@ RUN pip install -r dev-requirements.txt
 # Adiciona um usuário não root.
 RUN useradd -m idoptuser
 RUN chown -R idoptuser:idoptuser /usr/src/idopt
-RUN chown -R idoptuser:idoptuser /opt/venv
 # USER idoptuser:idoptuser
 
 # Run entrypoint
