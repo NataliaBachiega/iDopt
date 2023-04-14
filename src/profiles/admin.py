@@ -1,3 +1,6 @@
 from django.contrib import admin
+from profiles.models import IdoptUser, VerificationCode
 
-# Register your models here.
+admin.site.register(IdoptUser)
+admin.site.register(VerificationCode)
+

@@ -23,7 +23,8 @@
 				"ms-python.python",
 				"oderwat.indent-rainbow",
 				"GitHub.copilot",
-				"GitHub.copilot-labs"
+				"GitHub.copilot-labs",
+				"ms-vsliveshare.vsliveshare"
 			]
 		}
 	}
