@@ -24,7 +24,8 @@
 				"oderwat.indent-rainbow",
 				"GitHub.copilot",
 				"GitHub.copilot-labs",
-				"ms-vsliveshare.vsliveshare"
+				"ms-vsliveshare.vsliveshare",
+				"eamodio.gitlens"
 			]
 		}
 	}
