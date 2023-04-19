@@ -4,4 +4,4 @@ Este é o repositório do iDopt. Consulte nossa [documentação interna](https:/
 
 ---
 
-Conflito proposital!!!!
+Conflito proposital!!!!!!!!!!!
