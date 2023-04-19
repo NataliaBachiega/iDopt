@@ -18,6 +18,8 @@ services:
   
   database:
     image: postgres:13.5
+    ports:
+      - "5432:5432"
     volumes:
       - dbdata:/var/lib/postgresql/data
     environment:
