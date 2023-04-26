@@ -5,9 +5,10 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import status
 
-from profiles.api.serializers import DeviceSerializer, GetVerificationCodeSerializer, RegistrationSerializer, UserSerializer, VerifyEmailSerializer
+from profiles.api.serializers import DeviceSerializer, GetVerificationCodeSerializer, LoginSerializer, RegistrationSerializer, UserSerializer, VerifyEmailSerializer
 from profiles.models import Device, IdoptUser, VerificationCode
 from rest_framework.generics import CreateAPIView
+from knox.models import AuthToken
 
 
 class VerifyEmail(APIView):
@@ -106,3 +107,22 @@ class Registration(APIView):
             },
             status=status.HTTP_201_CREATED,
         )
+    
+class LoginView(APIView):
+    def post(self, request: Request) -> Response:
+        serializer = LoginSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        
+        user = IdoptUser.objects.get(username=serializer.data.get('username'))        
+        token_instance, token_hash = AuthToken.objects.create(user)
+        
+        device = Device(**serializer.data['device'], owner=user, token=token_instance)
+        device.save()
+        
+        response_data = {
+            'token': token_hash,
+            'user': UserSerializer(user).data,
+            'device': DeviceSerializer(device).data,
+        }
+        
+        return Response(data=response_data, status=status.HTTP_200_OK)

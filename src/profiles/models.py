@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
+from knox.models import AuthToken
 
 
 class IdoptUser(AbstractBaseUser):
@@ -17,6 +18,7 @@ class Device(models.Model):
     os_version: str = models.CharField(max_length=16)
     fcm_token: str = models.TextField()
     owner: IdoptUser = models.ForeignKey(IdoptUser, on_delete=models.CASCADE)
+    token = models.ForeignKey(AuthToken, on_delete=models.CASCADE, null=True)
 
 
 class VerificationCode(models.Model):
