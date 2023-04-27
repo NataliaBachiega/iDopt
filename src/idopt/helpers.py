@@ -9,7 +9,7 @@ def create_dummy_user() -> IdoptUser:
     faker = Faker()
     
     user =  IdoptUser(
-        username=faker.user_name(),
+        username=faker.user_name()[:15],
         email=faker.email(),
     )
     user.set_password('12345678')
