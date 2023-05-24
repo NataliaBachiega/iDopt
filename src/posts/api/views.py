@@ -1,4 +1,4 @@
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from posts.api.serializers import PostSerializer
 
 from posts.models import Post
@@ -8,4 +8,4 @@ class ListCreatePostView(ListCreateAPIView):
     serializer_class = PostSerializer
     
     def perform_create(self, serializer):
-        return serializer.save(author=self.request.user)
+        serializer.save(author=self.request.user)
