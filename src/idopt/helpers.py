@@ -1,4 +1,5 @@
 from profiles.models import IdoptUser
+from posts.models import Post
 from faker import Faker
 
 
@@ -16,3 +17,16 @@ def create_dummy_user() -> IdoptUser:
     user.save()
     
     return user
+
+def create_dummy_post(author: IdoptUser) -> Post:
+    '''
+    Função para ajudar nos testes. Cria um post na base de dados.
+    '''
+    faker = Faker()
+    
+    post = Post(
+        author=author,
+        content=faker.text(max_nb_chars=280)
+    )
+    post.save()
+    return post

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'knox',
     'profiles',
+    'posts'
 ]
 
 MIDDLEWARE = [
