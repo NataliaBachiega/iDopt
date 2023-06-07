@@ -1,4 +1,5 @@
-from rest_framework.generics import ListCreateAPIView, RetrieveDestroyAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveDestroyAPIView, ListAPIView
+from rest_framework.views import APIView
 from posts.api.serializers import PostSerializer
 from rest_framework.exceptions import PermissionDenied
 
@@ -23,3 +24,10 @@ class RetrieveDeletePostView(RetrieveDestroyAPIView):
             raise PermissionDenied(
                 "Você não tem permissão para deletar este post.")
         super().perform_destroy(instance)
+
+class ListCommentsView(ListAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        post_id = self.kwargs.get('pk')
+        return Post.objects.filter(comment_of=post_id)

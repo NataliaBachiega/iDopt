@@ -9,5 +9,7 @@ class Post(models.Model):
     )
     
     content: str = models.TextField()
+
+    comment_of = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, related_name='comments')
     
     created_at: datetime = models.DateTimeField(auto_now_add=True)

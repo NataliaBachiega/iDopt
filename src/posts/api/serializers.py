@@ -8,5 +8,10 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = '__all__'
+        depth = 1
     
     author = UserSerializer(required=False)
+
+    comment_of = serializers.PrimaryKeyRelatedField(
+        queryset=Post.objects.all(), required=False
+    )
