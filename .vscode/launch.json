@@ -5,8 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Servidor",
+            "type": "debugpy",
+            "python": "/opt/venv/bin/python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/manage.py",
+            "cwd": "${workspaceFolder}/src",
+            "args": [
+                "runserver",
+                "0.0.0.0:8000"
+            ],
+            "justMyCode": true,
+            "django": true
+        },
+        {
             "name": "Testes unitários",
-            "type": "python",
+            "type": "debugpy",
             "python": "/opt/venv/bin/python",
             "request": "launch",
             "program": "${workspaceFolder}/src/manage.py",
@@ -19,7 +33,7 @@
         },
         {
             "name": "Teste unitário específico",
-            "type": "python",
+            "type": "debugpy",
             "python": "/opt/venv/bin/python",
             "request": "launch",
             "program": "${workspaceFolder}/src/manage.py",
@@ -33,7 +47,7 @@
         },
         {
             "name": "Carregar Fixtures",
-            "type": "python",
+            "type": "debugpy",
             "preLaunchTask": "migrate",
             "python": "/opt/venv/bin/python",
             "request": "launch",
@@ -46,7 +60,7 @@
         },
         {
             "name": "Shell Interativo",
-            "type": "python",
+            "type": "debugpy",
             "python": "/opt/venv/bin/python",
             "request": "launch",
             "program": "${workspaceFolder}/src/manage.py",
