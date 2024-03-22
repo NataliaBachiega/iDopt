@@ -26,8 +26,7 @@ RUN chown -R idoptuser:idoptuser /usr/src/idopt
 # USER idoptuser:idoptuser
 
 # Run entrypoint
-# RUN sed -i 's/\r$//g' /usr/src/idopt/src/entrypoint.sh
-# RUN chmod +x /usr/src/idopt/src/entrypoint.sh
-
-# ENTRYPOINT ["/usr/src/idopt/src/entrypoint.sh"]
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+RUN sed -i 's/\r$//g' /usr/src/idopt/entrypoint.sh
+RUN chmod +x /usr/src/idopt/entrypoint.sh
+ENTRYPOINT ["/usr/src/idopt/entrypoint.sh"]
+# ENTRYPOINT ["tail", "-f", "/dev/null"]

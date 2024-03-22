@@ -4,8 +4,8 @@ services:
   server:
     env_file:
       - ./.env
-    build: .  
-    command: tail -f /dev/null
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
     tty: true
     ports:
       - "8000:8000"
